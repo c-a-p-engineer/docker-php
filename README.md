@@ -15,7 +15,22 @@ docker exec -it php sh
 ```
 
 # Usage
-http://localhost:8000
+
+## Nginx
+http://localhost:8000/
+
+## Mysql
+ID:root
+PW:rootpw
+
+## phpmyadmin
+http://localhost:18888
+ID:root
+PW:rootpw
+
+## mailhog
+http://localhost:8025/
+smtp:1025
 
 # Note
 
