@@ -1,4 +1,6 @@
-FROM php:8.0.1-fpm-alpine3.12
+ARG PHP_VERSION=8.0.1-fpm-alpine3.12
+
+FROM php:${PHP_VERSION}
 
 RUN apk update && \
     apk add --update --no-cache \

@@ -20,14 +20,12 @@ services:
     build:
       context: .
       dockerfile: ./php/Dockerfile
+      args:
+        - PHP_VERSION=${PHP_VERSION}
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
       - ./php/php.ini:/usr/local/etc/php/php.ini
     working_dir: ${APP_CODE_PATH_CONTAINER}
-    links:
-      - mysql
-    depends_on:
-      - mysql
     environment:
       - DB_HOST=database
       - DB_DATABASE=php
@@ -40,6 +38,10 @@ services:
       dockerfile: ./mysql/Dockerfile
     volumes:
       - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
+    links:
+      - phpmyadmin
+    depends_on:
+      - phpmyadmin
     ports:
       - "3306:3306"
     environment:
